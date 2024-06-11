@@ -1,25 +1,48 @@
 let arr = [12, 38, 46, 66, 87, 90];
-let find = 7;
+let find = 66;
 let first = 0;
 let last = arr.length - 1;
 
-function binary(arr, first, last, find) {
+do {
+    let mid = Math.floor((first + last) / 2);
 
-    if (first <= last) {
+    if (arr[mid] == find)
+        console.log(`${arr[mid]} is at index ${mid}`);
 
-        let mid = Math.floor((first + last) / 2);
+    if (arr[mid] > find)
+        last = mid - 1;
 
-        if (arr[mid] == find)
-            return `${arr[mid]} is at index ${mid}`;
+    else
+        first = mid + 1;
+} while (first <= last);
 
-        if (arr[mid] > find)
-            return binary(arr, first, mid - 1, find);
 
-        else
-            return binary(arr, mid + 1, last, find);
-    }
-}
+// let arr = [12, 38, 46, 66, 87, 90];
+// let find = 46;
+// let first = 0;
+// let last = arr.length - 1;
+// let mid;
 
-let result = binary(arr, first, last, find);
-console.log(result);
+// while (first <= last) {
+//     mid = Math.floor((first + last) / 2);
+
+//     if (arr[mid] === find) {
+
+//         console.log(`${find} is at index ${mid}`);
+//         break;
+//     }
+//     else if (arr[mid] > find) {
+
+//         last = mid - 1; // left half
+//     }
+//     else {
+
+//         first = mid + 1; // right half
+//     }
+// }
+
+// if (first > last) {
+
+//     console.log(`${find} is not present in the array`);
+// }
 
